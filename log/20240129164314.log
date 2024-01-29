@@ -1,0 +1,6 @@
+[2024/1/29 16:43:14][INFO][][0] 工作路径已切换到 C:\Users\64296\Documents\UiBot\creator\Projects\四川省框架协议电子化化采购系统RPA\
+[2024/1/29 16:43:14][INFO][流程初始化.task][0] 流程 流程初始化.task 开始运行
+[2024/1/29 16:43:14][ERROR][PublicBlock.task][2] 运行发生错误，流程中止
+错误信息如下：
+PublicBlock.task 第2行：只有数组或字典类型才能被索引
+[2024/1/29 16:43:14][INFO][流程初始化.task][0] C:\Users\64296\Documents\UiBot\creator\Projects\四川省框架协议电子化化采购系统RPA\流程初始化.task 运行已结束

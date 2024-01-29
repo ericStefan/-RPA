@@ -1,0 +1,53 @@
+Rem 【流程块注释】作者：邓清中
+Rem 【流程块注释】创建时间：2024年1月29日
+Rem 【流程块注释】全局变量参数初始化
+/**
+1、设置日志等级
+2、全局变量初始化
+3、判段是否安装office
+4、关闭浏览器
+5、关闭Excel、wps
+**/
+Dim temp
+Dim iRet
+Dim sRet
+Dim objExcelWorkBook = ""
+
+Rem 1、设置日志等级
+// Log.SetLevel(INI.Read(@res"Config.ini", "参数值", "LogLevel", "2"))
+TracePrint("————设置日志级别————")
+Log.SetLevel(2)
+
+Rem 2、全局变量初始化
+Rem 从本地读取
+PublicBlock.InitArgByLocal()
+
+
+//从Commander的上读取
+//PublicBlock.InitArgByCommander()
+
+TracePrint("————获取本地配置信息————")
+Rem 3、判段是否安装office
+Try    
+	objExcelWorkBook = Excel.OpenExcel(@res"result.xlsx",False)    
+	Excel.CloseExcel(objExcelWorkBook,False)
+Catch Ex
+	g_dictGlobal["isEx"] = True
+	Log.Info("初始化异常，没有安装office或者wps,请安装后重试!!!")
+End Try
+
+Rem 4、关闭浏览器
+App.Kill("msedge.exe")
+
+Rem 5、关闭Excel、wps
+TracePrint("————关闭wps————")
+App.Kill("EXCEL.exe")
+App.Kill("wps.exe")
+sRet = Sys.Command("taskkill /f /t /im msedge.exe")
+App.Kill("msedge.exe")
+App.Kill("")
+If g_dictGlobal["isEx"]=True 
+// 弹窗提示用户
+iRet = Dialog.MsgBox("初始化异常，没有安装office或者wps,请安装后重试!!!","系统提示",0,1,0)
+End If
+TracePrint("————系统初始化完成————")

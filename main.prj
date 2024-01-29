@@ -1,0 +1,381 @@
+{
+    "id": "f3701e90-be70-11ee-92d6-ff4c90313261",
+    "name": "四川省框架协议电子化化采购系统RPA",
+    "type": "flow",
+    "build": "",
+    "version": "6.0.1.220629",
+    "flow": [
+        {
+            "id": "start",
+            "rect": {
+                "x": 800,
+                "y": 150,
+                "width": 140,
+                "height": 50
+            },
+            "type": "begin",
+            "next": {
+                "refId": "f37045a0-be70-11ee-92d6-ff4c90313261",
+                "vertices": []
+            },
+            "caption": "流程开始"
+        },
+        {
+            "type": "task",
+            "id": "f37045a0-be70-11ee-92d6-ff4c90313261",
+            "rect": {
+                "x": 772,
+                "y": 250,
+                "width": 196,
+                "height": 64
+            },
+            "next": {
+                "refId": "282325b3-1f19-48e3-a538-40e406b05be9",
+                "vertices": []
+            },
+            "exception": {
+                "refId": "",
+                "vertices": []
+            },
+            "file": "流程初始化.task",
+            "caption": "流程初始化",
+            "editorMode": "sourceCode",
+            "breakpoints": {}
+        },
+        {
+            "type": "task",
+            "id": "282325b3-1f19-48e3-a538-40e406b05be9",
+            "rect": {
+                "x": 772,
+                "y": 352,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "获取采购公告信息",
+            "next": {
+                "vertices": [],
+                "refId": "3ae5f23a-1b9c-486a-ab09-fde8534c6ec5"
+            },
+            "exception": {
+                "vertices": [],
+                "refId": "eb34acef-cea0-47f3-98ca-77b46eeee229"
+            },
+            "file": "获取采购公告信息.task",
+            "editorMode": "sourceCode",
+            "breakpoints": {}
+        },
+        {
+            "type": "task",
+            "id": "3ae5f23a-1b9c-486a-ab09-fde8534c6ec5",
+            "rect": {
+                "x": 772,
+                "y": 462,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "获取二次竞价成交结果",
+            "next": {
+                "vertices": [],
+                "refId": "b2438449-6b9f-4976-b29f-585dcedf7e40"
+            },
+            "exception": {
+                "vertices": [],
+                "refId": "eb34acef-cea0-47f3-98ca-77b46eeee229"
+            },
+            "file": "获取二次竞价成交结果.task",
+            "editorMode": "sourceCode",
+            "breakpoints": {}
+        },
+        {
+            "type": "task",
+            "id": "b2438449-6b9f-4976-b29f-585dcedf7e40",
+            "rect": {
+                "x": 772,
+                "y": 575,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "发送邮件",
+            "next": {
+                "vertices": [],
+                "refId": "6861e273-7e05-4016-9671-f32d8665c2a0"
+            },
+            "exception": {
+                "vertices": [],
+                "refId": "eb34acef-cea0-47f3-98ca-77b46eeee229"
+            },
+            "file": "发送邮件.task",
+            "editorMode": "visual",
+            "breakpoints": {}
+        },
+        {
+            "type": "end",
+            "id": "6861e273-7e05-4016-9671-f32d8665c2a0",
+            "rect": {
+                "x": 800,
+                "y": 694,
+                "width": 140,
+                "height": 50
+            },
+            "caption": "流程结束"
+        },
+        {
+            "type": "if",
+            "id": "6a8fc1e8-c75b-41f5-87b9-4e313742ec46",
+            "rect": {
+                "x": 1290,
+                "y": 434,
+                "width": 120,
+                "height": 120
+            },
+            "caption": "发生异常",
+            "yes": {
+                "vertices": [],
+                "refId": "f37045a0-be70-11ee-92d6-ff4c90313261"
+            },
+            "no": {
+                "vertices": [],
+                "refId": "6861e273-7e05-4016-9671-f32d8665c2a0"
+            },
+            "expression": "g_iRetyNum<=3"
+        },
+        {
+            "type": "task",
+            "id": "eb34acef-cea0-47f3-98ca-77b46eeee229",
+            "rect": {
+                "x": 1070,
+                "y": 462,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "异常判断",
+            "next": {
+                "vertices": [],
+                "refId": "6a8fc1e8-c75b-41f5-87b9-4e313742ec46"
+            },
+            "exception": {},
+            "file": "异常判断.task",
+            "editorMode": "visual",
+            "breakpoints": {}
+        },
+        {
+            "type": "task",
+            "id": "090c2276-1c69-42b6-9bfb-57b17561897b",
+            "rect": {
+                "x": 1110,
+                "y": 340,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "配置文件处理",
+            "next": {},
+            "exception": {},
+            "file": "PublicBlock.task",
+            "editorMode": "sourceCode",
+            "breakpoints": {}
+        }
+    ],
+    "variables": [
+        {
+            "type": "none",
+            "name": "g_dictGlobal",
+            "value": "{}"
+        },
+        {
+            "name": "g_iRetyNum",
+            "value": "0",
+            "type": "none"
+        }
+    ],
+    "layout": {
+        "config": {
+            "global": {
+                "splitterSize": 1,
+                "splitterExtra": 8,
+                "enableEdgeDock": false,
+                "rootOrientationVertical": true,
+                "tabEnableClose": false,
+                "tabEnableRename": false,
+                "tabSetEnableDrag": false,
+                "tabSetEnableMaximize": false,
+                "tabSetMinWidth": 280,
+                "tabSetMinHeight": 200,
+                "borderBarSize": 24,
+                "borderAutoSelectTabWhenClosed": true,
+                "borderEnableAutoHide": true
+            },
+            "borders": [
+                {
+                    "type": "border",
+                    "selected": 0,
+                    "size": 250,
+                    "minSize": 250,
+                    "enableAutoHide": true,
+                    "location": "left",
+                    "children": [
+                        {
+                            "type": "tab",
+                            "id": "flow",
+                            "name": "流程",
+                            "component": "flowPanel",
+                            "config": {
+                                "i18nKey": "flow"
+                            }
+                        },
+                        {
+                            "type": "tab",
+                            "id": "command",
+                            "name": "命令",
+                            "component": "commandPanel",
+                            "config": {
+                                "i18nKey": "command"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "border",
+                    "selected": 0,
+                    "size": 280,
+                    "minSize": 280,
+                    "location": "right",
+                    "children": [
+                        {
+                            "type": "tab",
+                            "id": "commandProperty",
+                            "name": "属性",
+                            "component": "commandPropertyPanel",
+                            "config": {
+                                "i18nKey": "property"
+                            }
+                        },
+                        {
+                            "type": "tab",
+                            "id": "commandVariable",
+                            "name": "变量",
+                            "component": "commandVariablePanel",
+                            "config": {
+                                "i18nKey": "variable"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "layout": {
+                "type": "row",
+                "id": "body",
+                "children": [
+                    {
+                        "type": "tabset",
+                        "id": "#b62cdf5a-de97-4f5c-aebd-9656d737cb16",
+                        "weight": 157.87234042553192,
+                        "children": [
+                            {
+                                "type": "tab",
+                                "id": "f3701e90-be70-11ee-92d6-ff4c90313261",
+                                "name": "四川省框架协议电子化化采购系统RPA",
+                                "helpText": "C:\\Users\\64296\\Documents\\UiBot\\creator\\Projects\\四川省框架协议电子化化采购系统RPA\\main.prj",
+                                "component": "flowEditor",
+                                "config": {
+                                    "type": "project",
+                                    "id": "f3701e90-be70-11ee-92d6-ff4c90313261"
+                                },
+                                "enableClose": false,
+                                "className": "flexlayout__tab_button_modify",
+                                "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-flow.png"
+                            },
+                            {
+                                "type": "tab",
+                                "id": "f37045a0-be70-11ee-92d6-ff4c90313261",
+                                "name": "流程初始化",
+                                "helpText": "C:\\Users\\64296\\Documents\\UiBot\\creator\\Projects\\四川省框架协议电子化化采购系统RPA\\流程初始化.task",
+                                "component": "taskNodeEditor",
+                                "config": {
+                                    "selfControl": true,
+                                    "id": "f37045a0-be70-11ee-92d6-ff4c90313261",
+                                    "type": "task",
+                                    "selector": [
+                                        "f37045a0-be70-11ee-92d6-ff4c90313261"
+                                    ]
+                                },
+                                "enableClose": true,
+                                "className": "",
+                                "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-task.png"
+                            },
+                            {
+                                "type": "tab",
+                                "id": "282325b3-1f19-48e3-a538-40e406b05be9",
+                                "name": "获取采购公告信息",
+                                "helpText": "C:\\Users\\64296\\Documents\\UiBot\\creator\\Projects\\四川省框架协议电子化化采购系统RPA\\获取采购公告信息.task",
+                                "component": "taskNodeEditor",
+                                "config": {
+                                    "selfControl": true,
+                                    "id": "282325b3-1f19-48e3-a538-40e406b05be9",
+                                    "type": "task",
+                                    "selector": [
+                                        "282325b3-1f19-48e3-a538-40e406b05be9"
+                                    ]
+                                },
+                                "enableClose": true,
+                                "className": "",
+                                "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-task.png"
+                            },
+                            {
+                                "type": "tab",
+                                "id": "3ae5f23a-1b9c-486a-ab09-fde8534c6ec5",
+                                "name": "获取二次竞价成交结果",
+                                "helpText": "C:\\Users\\64296\\Documents\\UiBot\\creator\\Projects\\四川省框架协议电子化化采购系统RPA\\获取二次竞价成交结果.task",
+                                "component": "taskNodeEditor",
+                                "config": {
+                                    "selfControl": true,
+                                    "id": "3ae5f23a-1b9c-486a-ab09-fde8534c6ec5",
+                                    "type": "task",
+                                    "selector": [
+                                        "3ae5f23a-1b9c-486a-ab09-fde8534c6ec5"
+                                    ]
+                                },
+                                "enableClose": true,
+                                "className": "",
+                                "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-task.png"
+                            }
+                        ],
+                        "active": true
+                    },
+                    {
+                        "type": "tabset",
+                        "id": "buttom",
+                        "weight": 42.12765957446808,
+                        "height": 198,
+                        "enableDrop": false,
+                        "enableDrag": false,
+                        "enableDivide": false,
+                        "enableClose": false,
+                        "minHeight": 32,
+                        "headerHeight": 32,
+                        "children": [
+                            {
+                                "type": "tab",
+                                "id": "output",
+                                "name": "输出",
+                                "component": "outputPanel",
+                                "config": {
+                                    "i18nKey": "output"
+                                },
+                                "enableDrag": false,
+                                "enableRenderOnDemand": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "type": "flow",
+        "version": "1.0.20"
+    },
+    "flowConfig": {
+        "scrollbarPosition": {
+            "left": 1836,
+            "top": 807
+        }
+    }
+}

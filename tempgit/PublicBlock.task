@@ -1,0 +1,38 @@
+Dim temp,sRet,bRet,EX
+Rem 设置全局变量
+Function InitArgByLocal()
+g_dictGlobal["isEx"]=False
+// 采购系统登录信息
+g_dictGlobal["userName"]=INI.Read(@res"config.ini", "登录账号", "用户名", "")
+g_dictGlobal["passWord"]=INI.Read(@res"config.ini", "登录账号", "密码", "")
+End Function
+Function sendEmail()
+
+
+Dim path_Desktop,g_dictGlobal={},bRet,temp
+Try
+g_dictGlobal = {}
+g_dictGlobal["e-mail_SMTP"]=INI.Read(@res"config.ini", "邮件信息", "SMTP服务器", "")
+g_dictGlobal["e-mail_Port"]=INI.Read(@res"config.ini", "邮件信息", "服务器端口", "")
+
+g_dictGlobal["e-mail_sendName"]=INI.Read(@res"config.ini", "邮件信息", "发件人账号", "")
+
+g_dictGlobal["e-mail_loginName"]=INI.Read(@res"config.ini", "邮件信息", "登录账号", "")
+
+g_dictGlobal["e-mail_loginPassword"]=INI.Read(@res"config.ini", "邮件信息", "登录密码", "")
+
+g_dictGlobal["e-mail_reName1"]=INI.Read(@res"config.ini", "邮件信息", "收件人一", "")
+
+g_dictGlobal["e-mail_reName2"]=INI.Read(@res"config.ini", "邮件信息", "收件人二", "")
+
+g_dictGlobal["e-mail_Path"]=INI.Read(@res"config.ini", "邮件信息", "附件路径", "")
+
+
+bRet = Mail.SendEx(g_dictGlobal["e-mail_SMTP"],g_dictGlobal["e-mail_Port"],true,g_dictGlobal["e-mail_loginName"],g_dictGlobal["e-mail_loginPassword"],g_dictGlobal["e-mail_sendName"],[g_dictGlobal["e-mail_reName1"],g_dictGlobal["e-mail_reName2"],"tz@signinfo.net"],"","成都市政采云竞价信息表","成都市政采云竞价信息表采集成功，请查收！！！",['''C:\Users\sign\Desktop\成都市政采云竞价信息表（结果).xlsx'''])
+Catch EX
+TracePrint(EX)
+End Try
+
+
+
+End Function

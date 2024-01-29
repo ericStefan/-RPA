@@ -1,0 +1,6 @@
+
+Try
+    // 这里写主要流程
+Catch EX
+    TracePrint(EX)
+End Try
