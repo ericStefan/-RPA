@@ -1,6 +1,38 @@
-
+Dim hWeb,areaSelect,sRet,objWindow,arrayData,deRet,iRet
+Dim bdwData,hcData
+Dim postInfoData = []  
+Dim searchaItemList = ["服务器","投影仪","显示器","硬盘"]                                                   
 Try
-    //在这里写主要流程
+//在这里写主要流程
+objWindow = PrintToScreen.CreateWindow({"width": 522,"height": 296,"x": 1377,"y": 161,"resolution": {"width":1920,"height":1080}},true)
+PrintToScreen.DrawText(objWindow,"登录政采云系统",24,[255,0,0])
+hWeb = WebBrowser.Create("chrome","https://gpmall.zfcg.scsczt.cn/gpfa-main-web/index",30000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"sBrowserPath":"","sStartArgs":""})
+
+Window.Show(@ui"窗口_四川省框架协议电子化采购平台-GoogleChrome","max")
+areaSelect = UiElement.GetValue(@ui"文本<span>_四川省本级",{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+If areaSelect="四川省本级" 
+    TracePrint("选中了四川省本级")
+Else         
+    // 选中特定的区域
+End If
+
+Mouse.Action(@ui"列表项<li>_项目公告","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+
+UiElement.Wait(@ui"块级元素<div>_采购项目公告类型","show",10000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+Mouse.Wheel(2,"down", [],{"iDelayAfter":300, "iDelayBefore":200})
+Mouse.Action(@ui"块级元素<div>_采购公告","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+PrintToScreen.CleanText(objWindow)
+PrintToScreen.DrawText(objWindow,"开始抓取二次竞价公告数据",24,[255,0,0])
+Mouse.Action(@ui"列表项<li>_二次竞价","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+
+// 遍历searchItemList,进行多品类的搜索
+For Each  value In searchaItemList
+    Keyboard.InputText(@ui"输入控件<input>",value,true,20,10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 500, "bSetForeground": true, "sSimulate": "message", "bValidate": false, "bClickBeforeInput": false})
+Next
+
+// 传入参数(浏览器对象,搜索内容)
+PublicOpt.getData(hWeb)
+
 Catch EX 
     TracePrint(EX)
 End Try

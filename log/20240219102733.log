@@ -1,0 +1,7 @@
+[2024/2/19 10:27:33][INFO][][0] 工作路径已切换到 C:\Users\64296\Documents\UiBot\creator\Projects\四川省框架协议电子化化采购系统RPA\
+[2024/2/19 10:27:33][INFO][发送邮件.task][0] 流程 发送邮件.task 开始运行
+[2024/2/19 10:28:06][ERROR][PublicOpt.task][15] 运行发生错误，流程中止
+错误信息如下：
+PublicOpt.task 第15行：模块 Mouse.MouseAuto.Action 命令出错：调用的目标发生了异常。
+Exception in Mouse.Action,元素未找到
+[2024/2/19 10:28:06][INFO][发送邮件.task][0] C:\Users\64296\Documents\UiBot\creator\Projects\四川省框架协议电子化化采购系统RPA\发送邮件.task 运行已结束

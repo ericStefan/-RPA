@@ -1,0 +1,30 @@
+Function getData(hWeb) 
+    Dim arrayData,bdwData,hcData
+    Dim iRet,sRet
+
+    Keyboard.InputText(@ui"输入控件<input>","服务器",true,20,10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 500, "bSetForeground": true, "sSimulate": "message", "bValidate": false, "bClickBeforeInput": false})
+    Mouse.Action(@ui"文本<span>_查询","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+    sRet = UiElement.GetValue(@ui"列表项<li>_最后",{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+    iRet = CInt(sRet)
+    arrayData = UiElement.DataScrap({"wnd":[{"cls":"Chrome_WidgetWin_1","title":"*","app":"chrome"},{"cls":"Chrome_RenderWidgetHostHWND","title":"Chrome Legacy Window"}],"html":[{"tag":"TABLE","idx":1}]},{"ExtractTable":1,"Columns":[]},{"objNextLinkElement":{"wnd":[{"cls":"Chrome_WidgetWin_1","title":"*","app":"chrome"},{"cls":"Chrome_RenderWidgetHostHWND","title":"Chrome Legacy Window"}],"html":[{"tag":"I","parentid":"subapp","css-selector":"body>div>div>main>div>div>div>div>main>div>div>div>div>div>div>button>i","idx":1}]},"iMaxNumberOfPage":iRet,"iMaxNumberOfResult":-1,"iDelayBetweenMS":1000,"bContinueOnError":False})
+    TracePrint(arrayData)
+    // 回到第一页
+    Mouse.Action(@ui"列表项<li>_第一","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+    // 遍历抓取的标题数据，就能实现每一行都点击
+    For Each key, value In arrayData
+        TracePrint("key的值为："+key)
+        Mouse.Action(@ui"公告TR_第n行","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+    
+        bdwData = UiElement.DataScrap({"wnd":[{"cls":"Chrome_WidgetWin_1","title":"*","app":"chrome"},{"cls":"Chrome_RenderWidgetHostHWND","title":"Chrome Legacy Window"}],"html":[{"tag":"TABLE","aaname":"序号 采购标的 规格型号 数量(单位) 最高限价(元)"}]},{"ExtractTable":1,"Columns":[]},{"objNextLinkElement":'',"iMaxNumberOfPage":5,"iMaxNumberOfResult":-1,"iDelayBetweenMS":1000,"bContinueOnError":False}) 
+        hcData = UiElement.DataScrap({"wnd":[{"cls":"Chrome_WidgetWin_1","title":"*","app":"chrome"},{"cls":"Chrome_RenderWidgetHostHWND","title":"Chrome Legacy Window"}],"html":[{"tag":"TABLE","aaname":"序号 耗材配件分类 耗材配件需求 计量单位 数量(单位) 耗材/配件参数 最高限价(元)"}]},{"ExtractTable":1,"Columns":[]},{"objNextLinkElement":'',"iMaxNumberOfPage":5,"iMaxNumberOfResult":-1,"iDelayBetweenMS":1000,"bContinueOnError":False})
+        
+        // 当前页面数据抓取完成后，关闭标签
+        WebBrowser.Close(hWeb,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+        If (key+1) mod 10 = 0
+            // 需要翻页 
+            Mouse.Action(@ui"按钮<button>","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+        Else 
+        
+        End If
+    Next
+End Function

@@ -1,1 +1,2 @@
-
+Delay(1000)
+g_iRetyNum = g_iRetyNum+1

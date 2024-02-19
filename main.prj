@@ -162,7 +162,7 @@
             "type": "task",
             "id": "090c2276-1c69-42b6-9bfb-57b17561897b",
             "rect": {
-                "x": 1110,
+                "x": 1109,
                 "y": 340,
                 "width": 196,
                 "height": 64
@@ -172,6 +172,22 @@
             "exception": {},
             "file": "PublicBlock.task",
             "editorMode": "sourceCode",
+            "breakpoints": {}
+        },
+        {
+            "type": "task",
+            "id": "b0555554-d9b7-4037-8a50-44a6ac52bebf",
+            "rect": {
+                "x": 1094,
+                "y": 585,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "公用操作流程",
+            "next": {},
+            "exception": {},
+            "file": "PublicOpt.task",
+            "editorMode": "visual",
             "breakpoints": {}
         }
     ],
@@ -207,7 +223,7 @@
             "borders": [
                 {
                     "type": "border",
-                    "selected": 0,
+                    "selected": 1,
                     "size": 250,
                     "minSize": 250,
                     "enableAutoHide": true,
@@ -268,7 +284,8 @@
                     {
                         "type": "tabset",
                         "id": "#b62cdf5a-de97-4f5c-aebd-9656d737cb16",
-                        "weight": 157.87234042553192,
+                        "weight": 99.7872340425532,
+                        "selected": 4,
                         "children": [
                             {
                                 "type": "tab",
@@ -337,6 +354,60 @@
                                 "enableClose": true,
                                 "className": "",
                                 "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-task.png"
+                            },
+                            {
+                                "type": "tab",
+                                "id": "090c2276-1c69-42b6-9bfb-57b17561897b",
+                                "name": "配置文件处理",
+                                "helpText": "C:\\Users\\64296\\Documents\\UiBot\\creator\\Projects\\四川省框架协议电子化化采购系统RPA\\PublicBlock.task",
+                                "component": "taskNodeEditor",
+                                "config": {
+                                    "selfControl": true,
+                                    "id": "090c2276-1c69-42b6-9bfb-57b17561897b",
+                                    "type": "task",
+                                    "selector": [
+                                        "090c2276-1c69-42b6-9bfb-57b17561897b"
+                                    ]
+                                },
+                                "enableClose": true,
+                                "className": "",
+                                "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-task.png"
+                            },
+                            {
+                                "type": "tab",
+                                "id": "b2438449-6b9f-4976-b29f-585dcedf7e40",
+                                "name": "发送邮件",
+                                "helpText": "C:\\Users\\64296\\Documents\\UiBot\\creator\\Projects\\四川省框架协议电子化化采购系统RPA\\发送邮件.task",
+                                "component": "taskNodeEditor",
+                                "config": {
+                                    "selfControl": true,
+                                    "id": "b2438449-6b9f-4976-b29f-585dcedf7e40",
+                                    "type": "task",
+                                    "selector": [
+                                        "b2438449-6b9f-4976-b29f-585dcedf7e40"
+                                    ]
+                                },
+                                "enableClose": true,
+                                "className": "",
+                                "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-task.png"
+                            },
+                            {
+                                "type": "tab",
+                                "id": "b0555554-d9b7-4037-8a50-44a6ac52bebf",
+                                "name": "公用操作流程",
+                                "helpText": "C:\\Users\\64296\\Documents\\UiBot\\creator\\Projects\\四川省框架协议电子化化采购系统RPA\\PublicOpt.task",
+                                "component": "taskNodeEditor",
+                                "config": {
+                                    "selfControl": true,
+                                    "id": "b0555554-d9b7-4037-8a50-44a6ac52bebf",
+                                    "type": "task",
+                                    "selector": [
+                                        "b0555554-d9b7-4037-8a50-44a6ac52bebf"
+                                    ]
+                                },
+                                "enableClose": true,
+                                "className": "",
+                                "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-task.png"
                             }
                         ],
                         "active": true
@@ -344,8 +415,8 @@
                     {
                         "type": "tabset",
                         "id": "buttom",
-                        "weight": 42.12765957446808,
-                        "height": 198,
+                        "weight": 100.2127659574468,
+                        "height": 471,
                         "enableDrop": false,
                         "enableDrag": false,
                         "enableDivide": false,
@@ -374,8 +445,8 @@
     },
     "flowConfig": {
         "scrollbarPosition": {
-            "left": 1836,
-            "top": 807
+            "left": 1570,
+            "top": 664
         }
     }
 }

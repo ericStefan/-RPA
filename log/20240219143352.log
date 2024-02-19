@@ -1,0 +1,7 @@
+[2024/2/19 14:33:52][INFO][][0] 工作路径已切换到 C:\Users\64296\Documents\UiBot\creator\Projects\四川省框架协议电子化化采购系统RPA\
+[2024/2/19 14:33:52][INFO][main.prj][0] 流程 main.prj 开始运行
+[2024/2/19 14:33:52][INFO][main.prj][0] 进入流程块“流程初始化”
+[2024/2/19 14:33:56][INFO][main.prj][0] 进入流程块“获取采购公告信息”
+[2024/2/19 14:34:51][INFO][main.prj][0] 进入流程块“获取二次竞价成交结果”
+[2024/2/19 14:34:51][INFO][main.prj][0] 进入流程块“发送邮件”
+[2024/2/19 14:34:51][INFO][main.prj][0] C:\Users\64296\Documents\UiBot\creator\Projects\四川省框架协议电子化化采购系统RPA\main.prj 运行已结束
